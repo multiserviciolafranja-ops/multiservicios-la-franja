@@ -3,44 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multiservicios La Franja | Inicio</title>
+    <title>Multiservicios La Franja | Herrajes y Acabados</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <style>
-        :root { --primary: #0d6efd; --paint: #e67e22; --whatsapp: #25d366; }
+        :root { --primary: #0d6efd; --paint: #e67e22; --whatsapp: #25d366; --dark: #1a1d20; }
         
-        /* Estilo del Logo */
-        .navbar-brand img { height: 60px; width: auto; margin-right: 15px; }
+        body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background-color: #fcfcfc; color: #333; }
+
+        /* Navbar compacta para móviles */
+        .navbar { padding: 10px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .navbar-brand img { height: 50px; width: auto; transition: 0.3s; }
         
+        /* Hero responsivo: Menos alto en móviles para ir directo al grano */
         .hero { 
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=1200'); 
-            background-size: cover; padding: 100px 0; color: white; text-align: center; 
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=1200'); 
+            background-size: cover; background-position: center; padding: 60px 20px; color: white; text-align: center; 
         }
+
+        /* Tarjetas de Servicio Estilo "App" */
+        .card-service { 
+            border: none; border-radius: 15px; transition: 0.2s ease-in-out; 
+            border-bottom: 5px solid var(--primary); background: white; height: 100%;
+        }
+        .card-service:active { transform: scale(0.95); } /* Efecto de pulsación en Android */
         
-        .card-service { border: none; transition: 0.3s; cursor: pointer; border-top: 5px solid var(--primary); height: 100%; }
-        .card-service:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); background-color: #f8f9fa; }
-        
-        /* Contenedor de Catálogo Canva */
+        /* Galería de fotos dinámica */
+        .img-negocio { 
+            width: 100%; height: 220px; object-fit: cover; border-radius: 15px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+        }
+
+        /* Mapa y Catálogo */
+        .map-container {
+            position: relative; overflow: hidden; padding-top: 75%; /* Proporción más cuadrada para móvil */
+            border-radius: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
         .canva-embed {
-            position: relative; width: 100%; height: 0; padding-top: 140%;
-            box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); overflow: hidden;
-            border-radius: 8px; will-change: transform;
+            position: relative; width: 100%; height: 0; padding-top: 150%;
+            border-radius: 10px; overflow: hidden;
         }
         .canva-iframe { position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; }
-        
-        /* Galería de fotos del negocio */
-        .img-negocio { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; transition: 0.3s; }
-        .img-negocio:hover { transform: scale(1.02); }
 
-        /* Mapa responsivo */
-        .map-container {
-            position: relative; overflow: hidden; padding-top: 56.25%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .map-container iframe {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+        /* Botón de WhatsApp Flotante más visible */
+        .whatsapp-float { 
+            position: fixed; bottom: 25px; right: 20px; background: var(--whatsapp); 
+            color: white; padding: 12px 20px; border-radius: 50px; text-decoration: none; 
+            z-index: 1000; font-weight: 700; box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); 
+            display: flex; align-items: center; gap: 8px; font-size: 1.1rem;
         }
 
-        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; background: var(--whatsapp); color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; z-index: 1000; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 8px; }
+        /* Ajustes específicos para pantallas grandes (PC) */
+        @media (min-width: 992px) {
+            .hero { padding: 120px 0; }
+            .img-negocio { height: 350px; }
+            .map-container { padding-top: 45%; }
+        }
     </style>
 </head>
 <body>
@@ -48,88 +68,95 @@
     <nav class="navbar navbar-dark bg-dark sticky-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="logo.png" alt="Logo" onerror="this.src='https://via.placeholder.com/60?text=LF'">
-                <span class="fw-bold">MULTISERVICIOS LA FRANJA</span>
+                <img src="logo.png" alt="Logo" onerror="this.src='https://via.placeholder.com/50?text=LF'">
+                <span class="ms-2 fw-bold" style="font-size: 1.1rem;">LA FRANJA</span>
             </a>
+            <a href="tel:40507209" class="btn btn-outline-light btn-sm d-md-none">Llamar ahora</a>
         </div>
     </nav>
 
     <header class="hero">
         <div class="container">
-            <h1 class="display-4 fw-bold mb-3">MULTISERVICIOS LA FRANJA</h1>
-            <p class="lead">Herrería, Vidriería, Ferretería y Paint Center Profesional.</p>
+            <h1 class="display-5 fw-bold mb-2">MULTISERVICIOS LA FRANJA</h1>
+            <p class="opacity-75">Tu aliado en Herrería y Vidriería</p>
+            <div class="d-grid gap-2 d-md-block mt-4">
+                <a href="#servicios" class="btn btn-primary btn-lg px-4 rounded-pill">Ver Servicios</a>
+                <a href="#ubicacion" class="btn btn-outline-light btn-lg px-4 rounded-pill">Ubicación</a>
+            </div>
         </div>
     </header>
 
-    <section class="container my-5 pt-4">
-        <h2 class="text-center mb-5 fw-bold">Nuestras Instalaciones</h2>
-        <div class="row g-4">
-            <div class="col-md-6">
-                <img src="negocio1.jpg" class="img-negocio shadow" alt="Nuestro Local" onerror="this.src='https://via.placeholder.com/600x400?text=Fachada+del+Negocio'">
+    <section class="container my-5" id="servicios">
+        <h2 class="text-center mb-4 fw-bold">Nuestros Servicios</h2>
+        <div class="row g-3">
+            <div class="col-6 col-lg-3">
+                <div class="card card-service shadow-sm p-3 text-center" data-bs-toggle="modal" data-bs-target="#modalHerreria">
+                    <span class="material-symbols-outlined fs-1 text-primary">construction</span>
+                    <h3 class="h6 mt-2 fw-bold text-uppercase">Herrería</h3>
+                    <small class="text-primary fw-bold">Ver Catálogo</small>
+                </div>
             </div>
-            <div class="col-md-6">
-                <img src="negocio2.jpg" class="img-negocio shadow" alt="Nuestro Taller" onerror="this.src='https://via.placeholder.com/600x400?text=Área+de+Trabajo'">
+            <div class="col-6 col-lg-3">
+                <a href="https://wa.me/50248217548" class="text-decoration-none text-dark">
+                    <div class="card card-service shadow-sm p-3 text-center">
+                        <span class="material-symbols-outlined fs-1 text-primary">window</span>
+                        <h3 class="h6 mt-2 fw-bold text-uppercase">Vidriería</h3>
+                        <small class="text-muted">Consultar</small>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-lg-3">
+                <a href="https://wa.me/50240113693" class="text-decoration-none text-dark">
+                    <div class="card card-service shadow-sm p-3 text-center">
+                        <span class="material-symbols-outlined fs-1 text-primary">shutter_speed</span>
+                        <h3 class="h6 mt-2 fw-bold text-uppercase">Ferretería</h3>
+                        <small class="text-muted">Láminas/Perfiles</small>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-lg-3">
+                <a href="https://wa.me/50249663494" class="text-decoration-none text-dark">
+                    <div class="card card-service shadow-sm p-3 text-center" style="border-color:var(--paint)">
+                        <span class="material-symbols-outlined fs-1" style="color:var(--paint)">format_paint</span>
+                        <h3 class="h6 mt-2 fw-bold text-uppercase">Pinturas</h3>
+                        <small class="text-muted">Marca Corona</small>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <main class="container my-5">
-        <h2 class="text-center mb-5 fw-bold">Nuestros Servicios</h2>
-        <div class="row g-4">
-            <div class="col-md-6 col-lg-3">
-                <div class="card card-service shadow-sm p-4 text-center" data-bs-toggle="modal" data-bs-target="#modalHerreria">
-                    <span class="material-symbols-outlined fs-1 text-primary">construction</span>
-                    <h3 class="h5 mt-2 fw-bold">HERRERÍA</h3>
-                    <p class="small text-muted">Clic para ver catálogo virtual</p>
-                    <span class="badge bg-primary">Ver Trabajos</span>
-                </div>
+    <section class="container my-5">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <img src="negocio1.jpg" class="img-negocio shadow" alt="Fachada" onerror="this.src='https://via.placeholder.com/600x400?text=Fachada+Local'">
             </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="card card-service shadow-sm p-4 text-center">
-                    <span class="material-symbols-outlined fs-1 text-primary">window</span>
-                    <h3 class="h5 mt-2 fw-bold">VIDRIERÍA</h3>
-                    <p class="small text-muted">Ventanas y Mostradores</p>
-                    <a href="https://wa.me/50248217548" class="btn btn-sm btn-outline-primary mt-2">Consultar</a>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="card card-service shadow-sm p-4 text-center">
-                    <span class="material-symbols-outlined fs-1 text-primary">shutter_speed</span>
-                    <h3 class="h5 mt-2 fw-bold">FERRETERÍA</h3>
-                    <p class="small text-muted">Perfiles y Láminas</p>
-                    <a href="https://wa.me/50240113693" class="btn btn-sm btn-outline-primary mt-2">Consultar</a>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <div class="card card-service shadow-sm p-4 text-center" style="border-top-color:var(--paint)">
-                    <span class="material-symbols-outlined fs-1" style="color:var(--paint)">format_paint</span>
-                    <h3 class="h5 mt-2 fw-bold">PAINT CENTER</h3>
-                    <p class="small text-muted">Pinturas Corona</p>
-                    <a href="https://wa.me/50249663494" class="btn btn-sm btn-outline-warning mt-2">Consultar</a>
-                </div>
+            <div class="col-md-6">
+                <img src="negocio2.jpg" class="img-negocio shadow" alt="Taller" onerror="this.src='https://via.placeholder.com/600x400?text=Nuestro+Equipo'">
             </div>
         </div>
-    </main>
+    </section>
 
-    <section class="bg-light py-5">
+    <section id="ubicacion" class="bg-light py-5">
         <div class="container">
-            <h2 class="text-center mb-5 fw-bold">Ubicación y Horarios</h2>
-            <div class="row align-items-center">
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <div class="p-4 bg-white shadow-sm rounded border-start border-primary border-5">
-                        <h5 class="fw-bold mb-3">Visítanos en Guatemala</h5>
-                        <p class="mb-4">Atención personalizada en cada uno de tus proyectos de herrería y construcción.</p>
-                        <h6 class="fw-bold"><span class="material-symbols-outlined align-middle">schedule</span> Horarios:</h6>
-                        <ul class="list-unstyled small text-muted">
-                            <li>Lunes a Viernes: 7:30 AM - 5:30 PM</li>
-                            <li>Sábado: 7:30 AM - 1:00 PM</li>
-                            <li>Domingo: Cerrado</li>
+            <h2 class="text-center mb-4 fw-bold">Ubicación y Horarios</h2>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="bg-white p-4 rounded-4 shadow-sm h-100">
+                        <h5 class="fw-bold"><span class="material-symbols-outlined align-middle text-primary">location_on</span> Visítanos</h5>
+                        <p class="text-muted small">Guatemala. Atención experta en proyectos de metal y vidrio.</p>
+                        <hr>
+                        <h6 class="fw-bold">Horarios de Atención:</h6>
+                        <ul class="list-unstyled small mb-0">
+                            <li>Lunes - Viernes: 7:30 - 17:30</li>
+                            <li>Sábado: 7:30 - 13:00</li>
+                            <li class="text-danger">Domingo: Cerrado</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3837.664369875754!2d-90.07802272403293!3d15.87422788477744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x858a8727b9ca5221%3A0xe32c85b4f3716283!2sMultiservicios%20La%20Franja!5e0!3m2!1ses-419!2sgt!4v1775859299210!5m2!1ses-419!2sgt" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15444.69769926868!2d-90.5065913!3d14.6174825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a30000000000%3A0x0000000000000000!2sGuatemala!5e0!3m2!1ses!2sgt!4v1712750000000" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
@@ -137,19 +164,19 @@
     </section>
 
     <div class="modal fade" id="modalHerreria" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-dialog modal-fullscreen-sm-down modal-lg modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header bg-dark text-white">
-                    <h5 class="modal-title">Catálogo Herrería - La Franja</h5>
+                    <h5 class="modal-title">Catálogo de Herrería</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
-                <div class="modal-body p-0">
+                <div class="modal-body p-1">
                     <div class="canva-embed">
                         <iframe loading="lazy" class="canva-iframe" src="https://www.canva.com/design/DAHAd2xayRk/w2sCjbb8S0QihELxrSevzw/view?embed" allowfullscreen="allowfullscreen"></iframe>
                     </div>
                 </div>
-                <div class="modal-footer justify-content-center">
-                    <a href="https://wa.me/50231038920" class="btn btn-success fw-bold px-4 rounded-pill">Cotizar por WhatsApp</a>
+                <div class="modal-footer d-grid">
+                    <a href="https://wa.me/50231038920" class="btn btn-success btn-lg rounded-pill fw-bold">Consultar este catálogo</a>
                 </div>
             </div>
         </div>
@@ -157,13 +184,13 @@
 
     <footer class="bg-dark text-white text-center py-5">
         <div class="container">
-            <p class="mb-1 fw-bold">MULTISERVICIOS LA FRANJA</p>
-            <p class="small text-secondary">Oficina Central: 4050-7209</p>
+            <p class="mb-0 fw-bold">© 2026 MULTISERVICIOS LA FRANJA</p>
+            <p class="small opacity-50">Central: 4050-7209</p>
         </div>
     </footer>
 
     <a href="https://wa.me/50240507209" class="whatsapp-float" target="_blank">
-        <span class="material-symbols-outlined">chat</span> ¿Dudas? Escríbenos
+        <span class="material-symbols-outlined">chat</span> ¿Dudas?
     </a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
