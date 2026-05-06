@@ -1,15 +1,11 @@
 [
-    {
-        "src": "puerta_ejemplo.jpg",
+    {"src": "puerta_ejemplo.jpg",
         "titulo": "Puerta de herrería",
-        "descripcion": "Diseño personalizado, lamina estampada"
-    },
+        "descripcion": "Diseño personalizado, lamina estampada"},
   
-    {
-        "src": "ventana_vidrio.jpg",
+    {"src": "ventana_vidrio.jpg",
         "titulo": "Ventana pvc",
-        "descripcion": "Vidrio 5mm + marco de pvc blanco"
-    },
+        "descripcion": "Vidrio 5mm + marco de pvc blanco"},
     
  { "src": "cielo_falso.jpg",
     "titulo": "Cielo Falso",
