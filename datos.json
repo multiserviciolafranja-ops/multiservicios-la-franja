@@ -19,6 +19,10 @@
         "titulo": "Puerta Corrediza",
         "descripcion": "pvc negro y vidrio claro 5mm"},
     
+  {"src": "vitrina.jpg",
+        "titulo": "Vitrina Con Rodo",
+        "descripcion": "Reforzada 1mt x 2mt"},
+    
  { "src": "cielo_falso.jpg",
     "titulo": "Cielo Falso",
     "descripcion": "estructurado e instalacion de tablillas"}
