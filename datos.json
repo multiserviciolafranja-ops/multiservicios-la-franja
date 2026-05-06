@@ -7,6 +7,18 @@
         "titulo": "Ventana pvc",
         "descripcion": "Vidrio 5mm + marco de pvc blanco"},
     
+ {"src": "guillotina.jpg",
+        "titulo": "Ventana Tipo Guillotina",
+        "descripcion": "Vidrio 5mm + marco de pvc blanco"},
+    
+     {"src": "fachada.jpg",
+        "titulo": "Fachada Aluminio",
+        "descripcion": "Aluminio Negro y Vidrio Templado"},
+    
+    {"src": "pvccorredizo.jpg",
+        "titulo": "Puerta Corrediza",
+        "descripcion": "pvc negro y vidrio claro 5mm"},
+    
  { "src": "cielo_falso.jpg",
     "titulo": "Cielo Falso",
     "descripcion": "estructurado e instalacion de tablillas"}
