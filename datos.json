@@ -23,6 +23,30 @@
         "titulo": "Vitrina Con Rodo",
         "descripcion": "Reforzada 1mt x 2mt"},
     
+  {"src": "p1.jpeg",
+        "titulo": "Puerta Moderna",
+        "descripcion": "nuevo estilo lamina lisa"},
+    
+{"src": "p2.jpeg",
+        "titulo": "Puerta Moderna",
+        "descripcion": "con vidrio y jalador"},
+    
+{"src": "p3.jpeg",
+        "titulo": "Porton Metalico",
+        "descripcion": "Doble Hoja REforzado"},
+    
+{"src": "p4.jpeg",
+        "titulo": "Puerta Beteada",
+        "descripcion": "acabado tipo madera"},
+
+    {"src": "p5.jpeg",
+        "titulo": "Puerta Moderna",
+        "descripcion": "jalador inoxidable reforzado"},
+
+    {"src": "p6.jpeg",
+        "titulo": "En Proceso",
+        "descripcion": "aplicando fondo antes del acabado final"},
+    
  { "src": "cielo_falso.jpg",
     "titulo": "Cielo Falso",
     "descripcion": "estructurado e instalacion de tablillas"}
