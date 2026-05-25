@@ -1,10 +1,8 @@
 backend:
   name: git-gateway
-  repo: multiserviciolafranja-ops/multiservicios-la-franja  
-  branch: main   
-  base_url: https://api.netlify.com   
+  branch: main
 
-media_folder: "images/productos"  
+media_folder: "images/productos"
 public_folder: "/images/productos"
 
 collections:
