@@ -1,1 +1,22 @@
+backend:
+  name: github
+  repo: LAFRANJA-NELSON  # <--- CAMBIA ESTO
+  branch: main   # o gh-pages, según tu rama principal
+  base_url: https://api.netlify.com   # Necesario para autenticación
 
+media_folder: "images/productos"   # Carpeta donde se guardarán las imágenes
+public_folder: "/images/productos"
+
+collections:
+  - name: "molduras"
+    label: "Productos de Molduras"
+    folder: "data/molduras"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Código del producto", name: "codigo", widget: "string", required: true }
+      - { label: "Nombre", name: "nombre", widget: "string", required: true }
+      - { label: "Precio (Q)", name: "precio", widget: "number", value_type: "float", required: true }
+      - { label: "Descripción", name: "descripcion", widget: "text", required: false }
+      - { label: "Imagen", name: "imagen", widget: "image", required: false }
+      - { label: "Destacado", name: "destacado", widget: "boolean", default: false, required: false }
