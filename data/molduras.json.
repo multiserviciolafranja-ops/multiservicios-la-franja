@@ -1,1 +1,18 @@
-
+[
+  {
+    "codigo": "M-001",
+    "nombre": "Cornisa clásica",
+    "precio": 45.00,
+    "descripcion": "Cornisa de yeso de 2 metros, fácil instalación.",
+    "imagen": "/images/productos/cornisa.jpg",
+    "destacado": true
+  },
+  {
+    "codigo": "M-002",
+    "nombre": "Rosetón decorativo",
+    "precio": 28.50,
+    "descripcion": "Centro para lámparas, estilo europeo.",
+    "imagen": "/images/productos/roseton.jpg",
+    "destacado": false
+  }
+]
