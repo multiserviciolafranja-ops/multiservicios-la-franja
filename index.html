@@ -2,41 +2,186 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>La Franja | Inicio | Multiservicios</title>
+    <!-- Bootstrap 5 + iconos + Google Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: #fef8f0; overflow-x: hidden; }
-        :root { --electric-blue: #2b5cff; --vibrant-orange: #ff6a30; --deep-purple: #7c3aed; --sunset: #ffb347; --fresh-green: #22c55e; }
-        .hero { background: radial-gradient(circle at 10% 30%, #0a0f2c, #030617); position: relative; overflow: hidden; padding: 70px 20px 80px; text-align: center; border-bottom-left-radius: 2rem; border-bottom-right-radius: 2rem; }
-        .hero::before { content: ""; position: absolute; top: -30%; left: -20%; width: 140%; height: 140%; background: repeating-linear-gradient(45deg, rgba(255,106,48,0.08) 0px, rgba(255,106,48,0.08) 2px, transparent 2px, transparent 8px); pointer-events: none; }
-        .hero h1 { font-weight: 800; background: linear-gradient(135deg, #FFE6C7, #FFB347, #FF6A30); background-clip: text; -webkit-background-clip: text; color: transparent; letter-spacing: -0.02em; }
-        .navbar-custom { background: rgba(3, 7, 28, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,107,48,0.3); }
-        .navbar-brand span { background: linear-gradient(120deg, #fff, #ffaa70); background-clip: text; -webkit-background-clip: text; color: transparent; font-weight: 800; }
-        .nav-link { color: rgba(255,255,255,0.85) !important; font-weight: 500; }
-        .nav-link:hover, .nav-link.active { color: #ffaa70 !important; }
-        .service-card { background: rgba(255, 255, 255, 0.95); border: none; border-radius: 28px; padding: 1.2rem 0.5rem; transition: all 0.25s ease; cursor: pointer; box-shadow: 0 12px 22px -10px rgba(0,0,0,0.1); border-bottom: 4px solid var(--electric-blue); text-align: center; height: 100%; text-decoration: none; display: block; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fef8f0;
+            overflow-x: hidden;
+        }
+        :root {
+            --electric-blue: #2b5cff;
+            --vibrant-orange: #ff6a30;
+            --deep-purple: #7c3aed;
+            --sunset: #ffb347;
+            --fresh-green: #22c55e;
+        }
+        .hero {
+            background: radial-gradient(circle at 10% 30%, #0a0f2c, #030617);
+            position: relative;
+            overflow: hidden;
+            padding: 70px 20px 80px;
+            text-align: center;
+            border-bottom-left-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -30%;
+            left: -20%;
+            width: 140%;
+            height: 140%;
+            background: repeating-linear-gradient(45deg, rgba(255,106,48,0.08) 0px, rgba(255,106,48,0.08) 2px, transparent 2px, transparent 8px);
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-weight: 800;
+            background: linear-gradient(135deg, #FFE6C7, #FFB347, #FF6A30);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+        }
+        .navbar-custom {
+            background: rgba(3, 7, 28, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,107,48,0.3);
+        }
+        .navbar-brand span {
+            background: linear-gradient(120deg, #fff, #ffaa70);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+        .nav-link {
+            color: rgba(255,255,255,0.85) !important;
+            font-weight: 500;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #ffaa70 !important;
+        }
+        .service-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            border-radius: 28px;
+            padding: 1.2rem 0.5rem;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            box-shadow: 0 12px 22px -10px rgba(0, 0, 0, 0.1);
+            border-bottom: 4px solid var(--electric-blue);
+            text-align: center;
+        }
+        .service-card:active { transform: scale(0.96); }
         .service-card:hover { transform: translateY(-6px); background: white; }
-        .service-icon { font-size: 3rem; margin-bottom: 8px; }
+        .service-icon { font-size: 3rem; margin-bottom: 8px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1)); }
         .card-herreria { border-bottom-color: #2b5cff; }
         .card-vidrio { border-bottom-color: #ff6a30; }
-        .card-molduras { border-bottom-color: #7c3aed; }
+        .card-ferreteria { border-bottom-color: #22c55e; }
         .card-pintura { border-bottom-color: #ffb347; }
-        .card-laminas { border-bottom-color: #0e7c32; }
-        .service-badge { background: linear-gradient(90deg, #2b5cff, #7c3aed); display: inline-block; padding: 4px 12px; border-radius: 40px; font-size: 0.7rem; font-weight: 700; color: white; margin-top: 8px; }
-        .img-negocio { width: 100%; height: 250px; object-fit: cover; border-radius: 2rem; box-shadow: 0 20px 30px -15px rgba(0,0,0,0.25); }
-        .galeria-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; }
-        .galeria-item { background: white; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); transition: 0.2s; cursor: pointer; }
-        .galeria-item:hover { transform: translateY(-5px); }
-        .galeria-item img { width: 100%; height: 220px; object-fit: cover; transition: 0.3s; }
-        .galeria-item .info { padding: 1rem; text-align: center; }
-        .whatsapp-float { position: fixed; bottom: 25px; right: 20px; background: #25d366; border-radius: 60px; padding: 12px 22px; font-weight: 700; box-shadow: 0 10px 20px rgba(37,211,102,0.4); z-index: 1000; display: flex; align-items: center; gap: 8px; text-decoration: none; color: white; }
-        footer { background: #0a0f1c; border-top-left-radius: 2rem; border-top-right-radius: 2rem; margin-top: 2rem; }
-        @media (max-width: 768px) { .galeria-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); } .galeria-item img { height: 160px; } }
-        .dropdown-menu-dark { background-color: #0a0f2c; border: 1px solid #ff6a30; }
+        .service-badge {
+            background: linear-gradient(90deg, #2b5cff, #7c3aed);
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: white;
+            margin-top: 8px;
+        }
+        .img-negocio {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 2rem;
+            box-shadow: 0 20px 30px -15px rgba(0,0,0,0.25);
+            transition: transform 0.3s;
+        }
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        .galeria-item {
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .galeria-item:hover { transform: translateY(-5px); box-shadow: 0 20px 30px rgba(0,0,0,0.15); }
+        .galeria-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+        .galeria-item:hover img { transform: scale(1.02); }
+        .galeria-item .info {
+            padding: 1rem;
+            text-align: center;
+        }
+        .galeria-item .info h5 {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        .galeria-item .info p {
+            font-size: 0.75rem;
+            color: gray;
+        }
+        .map-container {
+            border-radius: 1.8rem;
+            overflow: hidden;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+        }
+        .info-box {
+            background: linear-gradient(145deg, #fff7ef, #ffffff);
+            border-radius: 1.5rem;
+            padding: 1.8rem;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 20px;
+            background: #25d366;
+            border-radius: 60px;
+            padding: 12px 22px;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(37,211,102,0.4);
+            transition: 0.2s;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: white;
+        }
+        .whatsapp-float:hover { transform: scale(1.03); background: #20b859; }
+        @media (max-width: 768px) {
+            .hero { padding: 50px 16px 60px; }
+            .service-icon { font-size: 2.4rem; }
+            .galeria-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
+            .galeria-item img { height: 160px; }
+        }
+        footer {
+            background: #0a0f1c;
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+            margin-top: 2rem;
+        }
+        .dropdown-menu-dark {
+            background-color: #0a0f2c;
+            border: 1px solid #ff6a30;
+        }
     </style>
 </head>
 <body>
@@ -44,10 +189,10 @@
 <nav class="navbar navbar-dark navbar-custom sticky-top py-2">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
-            <img src="logo.png" width="48" height="48" style="border-radius:20px" onerror="this.src='https://via.placeholder.com/48?text=LF'">
+            <img src="logo.png" alt="Logo La Franja" width="48" height="48" style="border-radius: 20px;" onerror="this.src='https://via.placeholder.com/48?text=LF'">
             <span class="fw-bold fs-4">LA FRANJA</span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarMain">
@@ -61,19 +206,23 @@
                         <li><a class="dropdown-item" href="molduras.html">Molduras</a></li>
                         <li><a class="dropdown-item" href="pintura.html">Pintura</a></li>
                         <li><a class="dropdown-item" href="laminas.html">Láminas</a></li>
+                        <li><a class="dropdown-item" href="ferreteria.html">Ferretería</a></li>
                     </ul>
                 </li>
+                <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
                 <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                <li class="nav-item"><a class="nav-link" href="testimonios.html">Testimonios</a></li>
             </ul>
-            <a href="tel:40507209" class="btn btn-outline-light rounded-pill px-3 py-1 fw-semibold ms-2">📞 Llamar</a>
+            <a href="tel:40507209" class="btn btn-outline-light rounded-pill px-3 py-1 fw-semibold ms-2 d-none d-md-inline-block">📞 Llamar</a>
         </div>
     </div>
 </nav>
 
 <header class="hero">
     <div class="container">
-        <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold">🔥 HERRERIA, VIDRIERIA, MOLDURAS, PINTURA, LAMINAS 🔥</span>
+        <span class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold">🔥 HERRERIA, VIDRERIA, MOLDURAS, PINTURA, LAMINAS Y MAS 🔥</span>
         <h1 class="display-5 fw-bold mb-3 mt-2">MULTISERVICIOS<br>LA FRANJA</h1>
+        <p class="fs-5 opacity-75">________________________________</p>
         <div class="mt-4">
             <a href="https://wa.me/50240507209" class="btn btn-success rounded-pill px-4 fw-bold" target="_blank">📲 WhatsApp 24/7</a>
         </div>
@@ -83,42 +232,43 @@
 <section class="container my-5 py-2">
     <div class="text-center mb-5">
         <span class="badge bg-dark text-warning px-4 py-2 rounded-pill fs-6">✨ ESPECIALIDADES ✨</span>
-        <h2 class="display-6 fw-bold mt-3">Lo que hacemos con <span style="background: linear-gradient(120deg,#ff6a30,#facc15); background-clip:text; -webkit-background-clip:text; color:transparent;">pasión</span></h2>
+        <h2 class="display-6 fw-bold mt-3" style="color:#1f2937;">Lo que hacemos con <span style="background: linear-gradient(120deg,#ff6a30,#facc15); background-clip:text; -webkit-background-clip:text; color:transparent;">pasión</span></h2>
     </div>
     <div class="row g-4">
-        <div class="col-6 col-lg-2-5 col-md-4">
-            <a href="herreria.html" class="service-card card-herreria text-center">
-                <span class="material-symbols-outlined service-icon" style="color: #2b5cff;">construction</span>
-                <h3>HERRERÍA</h3>
-                <span class="service-badge">📐 Catálogo</span>
+        <div class="col-6 col-lg-3">
+            <a href="herreria.html" class="text-decoration-none">
+                <div class="service-card card-herreria text-center">
+                    <span class="material-symbols-outlined service-icon" style="color: #2b5cff;">construction</span>
+                    <h3>HERRERÍA</h3>
+                    <span class="service-badge">📐 Catálogo Digital</span>
+                </div>
             </a>
         </div>
-        <div class="col-6 col-lg-2-5 col-md-4">
-            <a href="vidrieria.html" class="service-card card-vidrio text-center">
-                <span class="material-symbols-outlined service-icon" style="color: #ff6a30;">window</span>
-                <h3>VIDRIERÍA</h3>
-                <span class="service-badge">✨ Catálogo</span>
+        <div class="col-6 col-lg-3">
+            <a href="vidrieria.html" class="text-decoration-none">
+                <div class="service-card card-vidrio text-center">
+                    <span class="material-symbols-outlined service-icon" style="color: #ff6a30;">window</span>
+                    <h3>VIDRIERÍA</h3>
+                    <span class="service-badge">✨ Catálogo digital</span>
+                </div>
             </a>
         </div>
-        <div class="col-6 col-lg-2-5 col-md-4">
-            <a href="molduras.html" class="service-card card-molduras text-center">
-                <span class="material-symbols-outlined service-icon" style="color: #7c3aed;">palette</span>
-                <h3>MOLDURAS</h3>
-                <span class="service-badge">🎨 Diseños</span>
+        <div class="col-6 col-lg-3">
+            <a href="ferreteria.html" class="text-decoration-none">
+                <div class="service-card card-ferreteria text-center">
+                    <span class="material-symbols-outlined service-icon" style="color: #22c55e;">handyman</span>
+                    <h3>FERRETERÍA</h3>
+                    <span class="service-badge">📦 Cotiza ya</span>
+                </div>
             </a>
         </div>
-        <div class="col-6 col-lg-2-5 col-md-4">
-            <a href="pintura.html" class="service-card card-pintura text-center">
-                <span class="material-symbols-outlined service-icon" style="color: #ffb347;">format_paint</span>
-                <h3>PINTURA</h3>
-                <span class="service-badge">🎨 Corona</span>
-            </a>
-        </div>
-        <div class="col-6 col-lg-2-5 col-md-4">
-            <a href="laminas.html" class="service-card card-laminas text-center">
-                <span class="material-symbols-outlined service-icon" style="color: #0e7c32;">roofing</span>
-                <h3>LÁMINAS</h3>
-                <span class="service-badge">🏠 Techos</span>
+        <div class="col-6 col-lg-3">
+            <a href="pintura.html" class="text-decoration-none">
+                <div class="service-card card-pintura text-center">
+                    <span class="material-symbols-outlined service-icon" style="color: #ffb347;">format_paint</span>
+                    <h3>PINTURAS</h3>
+                    <span class="service-badge">🎨 pinturas Corona</span>
+                </div>
             </a>
         </div>
     </div>
@@ -126,8 +276,12 @@
 
 <section class="container my-4">
     <div class="row g-4">
-        <div class="col-md-6"><img src="negocio1.jpg" class="img-negocio" alt="Local" onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop'"></div>
-        <div class="col-md-6"><img src="negocio2.jpg" class="img-negocio" alt="Taller" onerror="this.src='https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&h=400&fit=crop'"></div>
+        <div class="col-md-6">
+            <img src="negocio1.jpg" class="img-negocio" alt="Nuestro local" onerror="this.src='https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&h=400&fit=crop'">
+        </div>
+        <div class="col-md-6">
+            <img src="negocio2.jpg" class="img-negocio" alt="Taller" onerror="this.src='https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600&h=400&fit=crop'">
+        </div>
     </div>
 </section>
 
@@ -136,8 +290,39 @@
         <div class="text-center mb-5">
             <span class="badge bg-primary px-4 py-2 rounded-pill fs-6">🛠️ ÚLTIMOS TRABAJOS</span>
             <h2 class="display-6 fw-bold mt-3">Clientes satisfechos</h2>
+            <p class="text-secondary">Actualizamos esta galería cada vez que hacemos un nuevo proyecto</p>
         </div>
-        <div id="galeria-container" class="galeria-grid">Cargando...</div>
+        <div id="galeria-container" class="galeria-grid">
+            <div class="text-center p-4">Cargando trabajos...</div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5" style="background: linear-gradient(125deg, #fff4ea, #fff0e4);">
+    <div class="container">
+        <div class="row g-4 align-items-stretch">
+            <div class="col-lg-4">
+                <div class="info-box h-100">
+                    <div class="d-flex align-items-center gap-3 mb-4">
+                        <span class="material-symbols-outlined fs-1" style="color: #ff6a30;">schedule</span>
+                        <h4 class="fw-bold mb-0">Horarios</h4>
+                    </div>
+                    <ul class="list-unstyled">
+                        <li><strong>🕒 Lunes a Sábado:</strong> 7:00 AM - 5:00 PM</li>
+                        <li class="mt-2"><strong>📴 Domingo:</strong> <span class="text-danger">Cerrado</span></li>
+                        <li class="mt-3"><span class="material-symbols-outlined me-1" style="font-size: 1.2rem;">call</span> <strong>Teléfono:</strong> 4050-7209</li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="https://wa.me/50240507209" class="btn text-white w-100 rounded-pill fw-bold" style="background: linear-gradient(90deg,#ff6a30,#ff8c42); border:none;">📲 Atención inmediata</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="map-container rounded-4 overflow-hidden shadow-lg">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3837.664369875754!2d-90.07802272403293!3d15.87422788477744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x858a8727b9ca5221%3A0xe32c85b4f3716283!2sMultiservicios%20La%20Franja!5e0!3m2!1ses-419!2sgt!4v1775859299210!5m2!1ses-419!2sgt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -152,7 +337,7 @@
 
 <a href="https://wa.me/50240507209" class="whatsapp-float" target="_blank">
     <span class="material-symbols-outlined">chat</span>
-    <span class="d-none d-sm-inline">WhatsApp</span>
+    <span class="d-none d-sm-inline">¿Ayuda?</span>
 </a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -161,18 +346,29 @@
         const contenedor = document.getElementById('galeria-container');
         try {
             const response = await fetch('datos.json');
-            if (!response.ok) throw new Error();
+            if (!response.ok) throw new Error('No se pudo cargar datos.json');
             const trabajos = await response.json();
-            if (!trabajos.length) { contenedor.innerHTML = '<div class="text-center p-4">📸 Próximamente más trabajos</div>'; return; }
+            if (trabajos.length === 0) {
+                contenedor.innerHTML = '<div class="text-center p-4">📸 Aún no hay trabajos subidos. ¡Próximamente!</div>';
+                return;
+            }
             let html = '';
-            trabajos.forEach(t => {
-                html += `<div class="galeria-item" onclick="window.open('https://wa.me/50240507209?text=Me%20interesa%20${encodeURIComponent(t.titulo)}','_blank')">
-                            <img src="galeria/${t.src}" alt="${t.titulo}" loading="lazy" onerror="this.src='https://via.placeholder.com/300'">
-                            <div class="info"><h5>${t.titulo}</h5><p>${t.descripcion || ''}</p></div>
-                        </div>`;
+            trabajos.forEach(trabajo => {
+                html += `
+                    <div class="galeria-item" onclick="window.open('https://wa.me/50240507209?text=Hola,%20me%20interesa%20un%20trabajo%20como%20${encodeURIComponent(trabajo.titulo)}','_blank')">
+                        <img src="galeria/${trabajo.src}" alt="${trabajo.titulo}" loading="lazy" onerror="this.src='https://via.placeholder.com/300?text=Error+de+carga'">
+                        <div class="info">
+                            <h5>${trabajo.titulo}</h5>
+                            <p>${trabajo.descripcion || ''}</p>
+                        </div>
+                    </div>
+                `;
             });
             contenedor.innerHTML = html;
-        } catch(e) { contenedor.innerHTML = '<div class="text-center p-4 text-danger">⚠️ No se pudo cargar la galería</div>'; }
+        } catch (error) {
+            contenedor.innerHTML = '<div class="text-center p-4 text-danger">⚠️ No se pudieron cargar los trabajos. Revisa que el archivo datos.json exista y esté bien escrito.</div>';
+            console.error(error);
+        }
     }
     cargarGaleria();
 </script>
