@@ -233,15 +233,39 @@
     }
 
     function parsearCSV(csv) {
+        // Eliminar BOM (Byte Order Mark) si existe
+        if (csv.charCodeAt(0) === 0xFEFF) csv = csv.slice(1);
+
         const lineas = csv.trim().split('\n');
         if (lineas.length < 2) return [];
-        const cabeceras = lineas[0].split(',').map(h => h.trim().toLowerCase());
+
+        // Función para dividir una línea respetando comillas dobles
+        const parseLinea = (linea) => {
+            const resultado = [];
+            let actual = '';
+            let entreComillas = false;
+            for (let i = 0; i < linea.length; i++) {
+                const char = linea[i];
+                if (char === '"') {
+                    entreComillas = !entreComillas;
+                } else if (char === ',' && !entreComillas) {
+                    resultado.push(actual.trim());
+                    actual = '';
+                } else {
+                    actual += char;
+                }
+            }
+            resultado.push(actual.trim());
+            return resultado;
+        };
+
+        const cabeceras = parseLinea(lineas[0]).map(h => h.trim().toLowerCase());
         const productos = [];
         for (let i = 1; i < lineas.length; i++) {
-            const valores = lineas[i].split(',').map(v => v.trim());
+            const valores = parseLinea(lineas[i]);
             const obj = {};
             cabeceras.forEach((col, idx) => {
-                obj[col] = valores[idx] || '';
+                obj[col] = valores[idx] !== undefined ? valores[idx] : '';
             });
             productos.push(obj);
         }
